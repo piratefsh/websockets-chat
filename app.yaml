@@ -1,0 +1,14 @@
+application: websockets-chat
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: .*
+  script: chat.app
+- url: /
+  static_dir: /
+  http_headers:
+    Access-Control-Allow-Origin: "*"
+
