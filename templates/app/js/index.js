@@ -13,7 +13,6 @@ app.controller('ChatController', ['$scope',
         }
 
         $scope.init = function() {
-            // $scope.socket = io.connect('http://websockets-chat-dev.elasticbeanstalk.com/echo');
             $scope.socket = io.connect('http://' + window.location.host + ':' + location.port + '/echo');
 
             $scope.socket.emit('join', {
@@ -28,8 +27,6 @@ app.controller('ChatController', ['$scope',
                 $scope.$apply(function() {
                     $scope.status.connected = true;
                     $scope.status.error = false;;
-                    // $scope.alerts.push('Connected')
-                    // $scope.alerts.push(e.users.length + ' users online: ' + e.users.join(', '))
                 });
             });
 
