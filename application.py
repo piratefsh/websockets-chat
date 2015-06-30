@@ -51,4 +51,4 @@ def disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(application, port=int(os.environ['PORT']))
+    socketio.run(application, host='0.0.0.0', port=int(os.environ['PORT']))
