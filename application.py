@@ -1,6 +1,6 @@
+import os 
 from flask import Flask, render_template, send_from_directory
 from flask.ext.socketio import SocketIO, emit
-import logging
 
 application = Flask(__name__)
 application.debug = True
@@ -51,5 +51,4 @@ def disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    app = application
-    socketio.run(app)
+    socketio.run(application, port=int(os.environ['PORT']))
