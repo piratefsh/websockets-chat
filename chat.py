@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -11,8 +11,11 @@ clients = []
 
 @app.route('/')
 def index():
-    return "I'm live!"
+    return render_template('app/index.html')
 
+@app.route('/assets/<path:path>')
+def send_js(path):
+    return send_from_directory('templates/app', path)
 
 @socketio.on('echo', namespace='/echo')
 def echo(message):
