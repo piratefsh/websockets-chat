@@ -9,11 +9,9 @@ socketio = SocketIO(application)
 
 clients = []
 
-FORMAT = '%(asctime)-15s [%(levelname)s] %(message)s'
-DATE_FMT = '%m/%d/%Y %H:%M:%S'
-
 @application.route('/')
 def index():
+    print('loaded index')
     return "I'm live!"
     
 @application.route('/chat')
@@ -54,8 +52,4 @@ def disconnect():
 
 if __name__ == '__main__':
     app = application
-    stream_handler = logging.StreamHandler()
-    app.logger.addHandler(stream_handler)
-    app.logger.setLevel(logging.INFO)
-    app.logger.info('Start Logging')
     socketio.run(app)
