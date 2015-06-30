@@ -13,7 +13,7 @@ app.controller('ChatController', ['$scope',
         }
 
         $scope.init = function() {
-            $scope.socket = io.connect('http://' + window.location.host + ':' + location.port + '/echo');
+            $scope.socket = io.connect('http://' + document.domain + ':' + location.port + '/echo');
 
             $scope.socket.emit('join', {
                 data: $scope.username
