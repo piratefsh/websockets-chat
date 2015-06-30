@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 from flask.ext.socketio import SocketIO, emit
+import logging
 
 application = Flask(__name__)
 application.debug = True
@@ -7,6 +8,12 @@ application.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(application)
 
 clients = []
+
+FORMAT = '%(asctime)-15s [%(levelname)s] %(message)s'
+DATE_FMT = '%m/%d/%Y %H:%M:%S'
+
+loglevel = logging.DEBUG
+logging.basicConfig(format=FORMAT, datefmt=DATE_FMT, level=loglevel)
 
 
 @application.route('/')
