@@ -12,10 +12,6 @@ clients = []
 FORMAT = '%(asctime)-15s [%(levelname)s] %(message)s'
 DATE_FMT = '%m/%d/%Y %H:%M:%S'
 
-loglevel = logging.DEBUG
-logging.basicConfig(format=FORMAT, datefmt=DATE_FMT, level=loglevel)
-
-
 @application.route('/')
 def index():
     return "I'm live!"
@@ -57,4 +53,9 @@ def disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(application)
+    app = application
+    stream_handler = logging.StreamHandler()
+    app.logger.addHandler(stream_handler)
+    app.logger.setLevel(logging.INFO)
+    app.logger.info('Start Logging')
+    socketio.run(app)
