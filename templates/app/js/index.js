@@ -14,7 +14,7 @@ app.controller('ChatController', ['$scope',
 
         $scope.init = function() {
             // $scope.socket = io.connect('http://websockets-chat-dev.elasticbeanstalk.com/echo');
-            $scope.socket = io.connect('http://' + 'localhost' + ':' + location.port + '/echo');
+            $scope.socket = io.connect('http://' + window.location.host + ':' + location.port + '/echo');
 
             $scope.socket.emit('join', {
                 data: $scope.username
