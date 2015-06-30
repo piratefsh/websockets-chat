@@ -15,11 +15,11 @@ def index():
     
 @application.route('/chat')
 def chat():
-    return render_template('application/index.html')
+    return render_template('app/index.html')
 
 @application.route('/assets/<path:path>')
 def send_js(path):
-    return send_from_directory('templates/application', path)
+    return send_from_directory('templates/app', path)
 
 @socketio.on('echo', namespace='/echo')
 def echo(message):
@@ -36,7 +36,7 @@ def message(message):
 
 @socketio.on('join', namespace='/echo')
 def join(message):
-    clients.applicationend(message['data'])
+    clients.append(message['data'])
     emit('joined', {'data': '%s is online' % message['data']}, broadcast=True)
 
 
