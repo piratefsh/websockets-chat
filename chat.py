@@ -9,8 +9,12 @@ socketio = SocketIO(app)
 clients = []
 
 
-@app.route('/chat')
+@app.route('/')
 def index():
+    return "I'm live!"
+    
+@app.route('/chat')
+def chat():
     return render_template('app/index.html')
 
 @app.route('/assets/<path:path>')
