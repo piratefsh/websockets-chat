@@ -2,6 +2,8 @@
 A simple chat using websockets with Socket.io
 
 ## Demo
+Only tested on Google Chrome Version 43.0.2357.124 (64-bit) on Mac OSX
+
 [http://hidden-wildwood-6596.herokuapp.com/chat](http://hidden-wildwood-6596.herokuapp.com/chat)
 
 
@@ -37,3 +39,7 @@ Go to `http://localhost:5000/chat` to start chatting! Open another window and ch
 * AngularJS
 * Socket.io
 * SASS
+
+## Known bugs
+
+* Sometimes sends message out twice
